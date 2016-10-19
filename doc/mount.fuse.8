@@ -94,10 +94,13 @@ The timeout in seconds for which file/directory attributes are cached.  The defa
 \fBac_attr_timeout=T\fP
 The timeout in seconds for which file attributes are cached for the purpose of checking if \fBauto_cache\fP should flush the file data on  open. The default is the value of \fBattr_timeout\fP
 .TP
-\fBnoforget\fF
+\fBnoforget\fP
+.TP
+\fBremember=T\fP
 Normally, FUSE assigns inodes to paths only for as long as the kernel
-is aware of them. With this option inodes are instead assigned permanently for
-the life-time of the file-system process. This will require more
+is aware of them. With this option inodes are instead assigned
+for at least \fBT\fP seconds (or, in the case of \fBnoforget\fP,
+the life-time of the file-system process). This will require more
 memory, but may be necessary when using applications that make use of
 inode numbers.
 .TP
